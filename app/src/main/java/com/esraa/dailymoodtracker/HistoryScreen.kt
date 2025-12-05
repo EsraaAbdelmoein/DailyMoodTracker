@@ -1,6 +1,7 @@
 package com.esraa.dailymoodtracker
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
@@ -11,42 +12,30 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.esraa.dailymoodtracker.ui.theme.TextBlack
 
-// Each item in the history has a day/date and the mood text
-data class MoodEntry(
-    val dayAndDate: String,
-    val moodText: String
-)
-
-// This part shows the weekly mood history lines
 @Composable
-fun HistorySection(entries: List<MoodEntry>) {
-
+fun HistoryScreen(entries: List<MoodEntry>) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 8.dp),
+            .padding(top = 24.dp),
         horizontalAlignment = Alignment.Start
     ) {
-
         Text(
             text = "Weekly Mood History",
-            fontSize = 20.sp,
-            fontWeight = FontWeight.Bold,
-            color = MaterialTheme.colorScheme.onBackground
+            fontSize = 18.sp,
+            fontWeight = FontWeight.SemiBold,
+            color = TextBlack
         )
 
-        // I add a little space under the title
-        Text(
-            text = "",
-            fontSize = 4.sp
-        )
+        Spacer(modifier = Modifier.padding(top = 8.dp))
 
         entries.forEach { entry ->
             Text(
                 text = "${entry.dayAndDate} : ${entry.moodText}",
-                fontSize = 14.sp,
-                color = MaterialTheme.colorScheme.onBackground,
+                style = MaterialTheme.typography.bodyMedium,
+                color = TextBlack,
                 modifier = Modifier.padding(vertical = 2.dp)
             )
         }

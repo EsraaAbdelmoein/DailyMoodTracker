@@ -3,15 +3,15 @@ package com.esraa.dailymoodtracker.ui.theme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.graphics.Color
 
-// Here I connect my custom colors to the Material theme
+// Connect our colors to Material theme
 private val LightColors = lightColorScheme(
     primary = ButtonBlue,
-    onPrimary = Color.Black,
+    secondary = ButtonBlue,
     background = ScreenPurple,
-    onBackground = TextBlack,
     surface = ScreenPurple,
+    onPrimary = TextBlack,
+    onBackground = TextBlack,
     onSurface = TextBlack
 )
 
